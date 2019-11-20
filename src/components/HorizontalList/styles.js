@@ -1,8 +1,7 @@
 import styled from 'styled-components/native';
 
 export const FlatList = styled.FlatList`
-  max-height: 110;
-  background-color: red;
+  max-height: 150;
   margin-bottom: 20;
 `;
 

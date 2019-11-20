@@ -3,22 +3,15 @@ import {FlatList, ListHeader} from './styles';
 
 import Card from '../Card';
 
-const data = [
-  {id: 1, title: 'lala'},
-  {id: 2, title: 'fonfon'},
-  {id: 3, title: 'haha'},
-  {id: 4, title: 'hehe'},
-];
-
-export default function HorizontalList() {
+export default function HorizontalList(props) {
   return (
     <>
-      <ListHeader>Terror</ListHeader>
+      <ListHeader>{props.title}</ListHeader>
       <FlatList
         horizontal
-        data={data}
-        renderItem={({item}) => <Card title={item.title} />}
-        keyExtractor={item => item.id}
+        data={props.data?.data ? props.data.data.results : null}
+        renderItem={({item}) => <Card data={item} />}
+        keyExtractor={item => `${item.id}-${item.name}`}
       />
     </>
   );
